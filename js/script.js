@@ -21,7 +21,54 @@ angular.module('appBookmarks', [])
 
 		function setCurrentCategory(category){
 			$scope.currentCategory = category;
+
+			cancelEditing();
+			cancelCreating();
 		};
 
+		function isCurrentCategory( category ){
+			return category !== null && category=== $scope.currentCategory;
+		}
+
 		$scope.setCurrentCategory = setCurrentCategory;
+		$scope.isCurrentCategory = isCurrentCategory;
+
+		// CREATING AND EDITING
+		
+		$scope.isCreating = false;
+		$scope.isEditing = false;
+
+		function startCreating(){
+			$scope.isCreating = true;
+			$scope.isEditing = false;
+		};
+
+		function cancelCreating() {
+			$scope.isCreating = false;
+		}
+
+		function startEditing() {
+			$scope.isCreating = false;
+			$scope.isEditing = true;
+		};
+
+		function cancelEditing() {
+			$scope.isEditing = false;
+		}
+
+		function shoulShowCreating(){
+			return !$scope.isEditing && $scope.currentCategory;
+		}
+
+		function shouldShowEditing(){
+			return $scope.isEditing && !$scope.isCreating;
+		}
+
+		$scope.startCreating = startCreating;
+		$scope.cancelCreating = cancelCreating;
+		$scope.startEditing = startEditing;
+		$scope.cancelEditing = cancelEditing;
+		$scope.shoulShowCreating = shoulShowCreating;
+		$scope.shouldShowEditing = shouldShowEditing;
+
 	});
