@@ -1,0 +1,23 @@
+.sidebar{
+	background-color: #5FC77E;
+	height: 1000px;
+	color: #fff;
+}
+
+.sidebar a{
+	color: #fff;
+}
+
+.sidebar a:hover{
+	color: #fff;
+}
+
+.logo{
+	width: 130px;
+	height: 40px;
+	margin-bottom: 40px;
+}
+
+.bookmarks{
+	width: 200px;
+}

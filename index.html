@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appBookmarks">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+</head>
+<body  ng-controller="MainCtrl">
+	
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar">
+				<a href="#" ng-click="setCurrentCategory(null)">
+					<img src="img/logo@2x.png" alt="" class="logo">
+				</a>
+					<ul>
+						<li ng-repeat="category in categories">
+							<a href="#" ng-click="setCurrentCategory(category)">{{category.name}}</a>
+						</li>
+					</ul>
+			</div>
+			<div class="col-sm-9 col-md-10 main">
+				<div ng-repeat="bookmark in bookmarks | filter: { category:currentCategory.name }" class="bookmarks">
+					<button class="close">&times;</button>
+					<button class="btn btn-link"><span class="glyphicon glyphicon-pencil"></span></button>
+					<a href="{{bookmark.url}}" target="_blink">{{bookmark.title}}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>
