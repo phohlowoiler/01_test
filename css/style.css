@@ -3,6 +3,10 @@ ul{
 	margin: 0;
 }
 
+button{
+	outline: none !important;
+}
+
 li{
 	list-style: none;
 }
@@ -37,8 +41,16 @@ li{
 	margin-bottom: 40px;
 }
 
-.bookmarks{
-	
+/*.active-bookmark{
+	background-color: #5FC77E;
+}
+*/
+.active-bookmark a,
+.active-bookmark .glyphicon{
+	color: #5FC77E;
+}
+.active-bookmark{
+
 }
 
 .sidebar li a{
